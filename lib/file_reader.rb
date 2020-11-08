@@ -1,6 +1,6 @@
 class FileReader
-  attr_reader :read_file
-  def initialize(input_file)
-    @read_file = input_file
+  attr_reader :file_to_read
+  def initialize(file_to_read)
+    @file_to_read = file_to_read
   end
 end

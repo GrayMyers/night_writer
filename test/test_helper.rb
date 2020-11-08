@@ -8,3 +8,4 @@ SimpleCov.start
 require "./lib/file_reader.rb"
 require "./lib/file_writer.rb"
 require "./lib/dictionary.rb"
+require "./lib/character.rb"

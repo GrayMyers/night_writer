@@ -8,6 +8,11 @@ class FileReaderTest < Minitest::Test
   def test_it_exists_and_has_attributes
     assert_instance_of FileReader, @file_reader
 
-    assert_equal "message.txt", @file_reader.read_file
+    assert_equal "message.txt", @file_reader.file_to_read
+  end
+
+  def test_it_can_read_file
+    expected_text = ""
+    assert_equal expected_text, @file_reader.read
   end
 end

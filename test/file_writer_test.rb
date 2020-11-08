@@ -15,10 +15,12 @@ class FileWriterTest < Minitest::Test
     assert_instance_of FileWriter, @writer
 
     assert_equal "example.txt", @writer.file_to_write
+    assert_equal 0, @writer.chars
   end
 
   def test_it_writes
     assert_equal "Close file", @writer.write(["This","is","another","message!"])
+    assert_equal 24, @writer.chars
   end
 
   def test_it_removes_if_exists

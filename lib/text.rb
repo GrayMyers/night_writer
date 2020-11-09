@@ -26,9 +26,9 @@ class Text
     characters = []
     string.split(" ").each_with_index do |line, i|
       modified_i = i % 3
-      top << line + ".." if modified_i == 0
-      mid << line + ".." if modified_i == 1
-      bot << line + ".." if modified_i == 2
+      top << line if modified_i == 0
+      mid << line if modified_i == 1
+      bot << line if modified_i == 2
     end
     (top.length/2).times do |i|
       modified_i = i * 2

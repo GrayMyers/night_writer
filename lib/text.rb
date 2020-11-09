@@ -11,4 +11,16 @@ class Text
       Character.from_english(char)
     end
   end
+
+  def braille_text
+    top = ""
+    mid = ""
+    bot = ""
+    @characters.each do |character|
+      top << character.braille_top
+      mid << character.braille_mid
+      bot << character.braille_bot
+    end
+    top + "\n" + mid + "\n" + bot
+  end
 end

@@ -9,7 +9,7 @@ class FileWriter
     remove_if_exists
     file_obj = File.new(@file_to_write, "w")
 
-    input = concat_lines(lines)
+    input = lines
     write_to_file(file_obj,input)
 
     @chars = input.length
@@ -23,11 +23,5 @@ class FileWriter
 
   def remove_if_exists
     File.delete(@file_to_write) if File.file?(@file_to_write)
-  end
-
-  def concat_lines(lines)
-    lines.each_with_object("") do |element, collector|
-      collector << element + "\n"
-    end.chomp
   end
 end

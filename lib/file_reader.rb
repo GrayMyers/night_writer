@@ -6,8 +6,6 @@ class FileReader
 
   def read
     file_object = File.new(@file_to_read)
-    file_object.readlines.map do |line|
-      line.chomp
-    end
+    file_object.readlines.join(" ").tr("\n","")
   end
 end

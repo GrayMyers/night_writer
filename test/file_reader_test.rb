@@ -12,7 +12,7 @@ class FileReaderTest < Minitest::Test
   end
 
   def test_it_can_read_file
-    expected_arr = ["This","is","a","message!"]
+    expected_arr = "hello world"
     assert_equal expected_arr, @file_reader.read
   end
 end

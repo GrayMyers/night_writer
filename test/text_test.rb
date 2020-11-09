@@ -25,6 +25,13 @@ class TextTest < Minitest::Test
   def test_it_returns_braille_text
     expected = "..........\n0000000000\n.........."
     assert_equal expected, @text.braille_text
+
+    text2 = Text.new("a"*100) #test for truncation edge case
+    long_dot = "."*80
+    long_0 = "0"*80
+    short_dot = "."*20
+    short_0 = "0"*20
+    expected_2 = long_dot+"\n"+long_0+"\n"+long_dot+"\n"+short_dot+"\n"+short_0+"\n"+short_dot
   end
 
   def test_it_truncates

@@ -14,4 +14,8 @@ class TextTest < Minitest::Test
     assert_equal "hello", @text.original
     assert_equal ([@char,@char,@char,@char,@char]), @text.characters
   end
+
+  def test_it_makes_characters
+    assert_equal ([@char,@char,@char,@char,@char]), @text.make_characters("hello")
+  end
 end

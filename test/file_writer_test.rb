@@ -19,7 +19,7 @@ class FileWriterTest < Minitest::Test
   end
 
   def test_it_writes
-    assert_equal "Close file", @writer.write(["This","is","another","message!"])
+    assert_equal "Close file", @writer.write("This is another message!")
     assert_equal 24, @writer.chars
   end
 
@@ -28,10 +28,6 @@ class FileWriterTest < Minitest::Test
   end
 
   def test_it_writes_to_file
-    assert_equal "Write to file", @writer.write_to_file(@file_object,["This","is","another","message!"])
-  end
-
-  def test_it_concats_lines
-    assert_equal "This\nis\nanother\nmessage!", @writer.concat_lines(["This","is","another","message!"])
+    assert_equal "Write to file", @writer.write_to_file(@file_object,"This is another message!")
   end
 end

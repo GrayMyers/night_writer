@@ -26,4 +26,15 @@ class TextTest < Minitest::Test
     expected = "..........\n0000000000\n.........."
     assert_equal expected, @text.braille_text
   end
+
+  def test_it_truncates
+    too_long = "."*165
+    expected_str = "."*80
+    expected_leftover = "."*5
+    expected_arr = [[expected_str,expected_str,expected_leftover],
+                    [expected_str,expected_str,expected_leftover],
+                    [expected_str,expected_str,expected_leftover]
+                  ]
+    assert_equal expected_arr, @text.truncate(too_long,too_long,too_long)
+  end
 end

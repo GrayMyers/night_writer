@@ -12,6 +12,6 @@ class TextTest < Minitest::Test
     assert_instance_of Text, @text
 
     assert_equal "hello world", @text.original
-    assert_equal ([@char,@char,@char,@char,@char],@text.characters)
+    assert_equal ([@char,@char,@char,@char,@char]), @text.characters
   end
 end

@@ -10,8 +10,7 @@ class CharacterTest < Minitest::Test
     assert_equal ["0.","..",".."], @char.braille_arr
     assert_equal "0.", @char.braille_top
     assert_equal "..", @char.braille_mid
-    assert_equal "..", @char.braille_bot
-
+    assert_equal "..", @char.braille_bot 
   end
 
   def test_it_initializes_from_braille

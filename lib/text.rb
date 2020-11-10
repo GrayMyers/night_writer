@@ -1,6 +1,9 @@
 require './lib/character'
 class Text
+
+  MAX_LENGTH = 80
   attr_reader :original, :characters
+
   def initialize(string,translation_type)
     @original = string
     @characters = translation_type == "english" ?
@@ -26,9 +29,9 @@ class Text
     characters = []
     string.split(" ").each_with_index do |line, i|
       modified_i = i % 3
-      top << line + ".." if modified_i == 0
-      mid << line + ".." if modified_i == 1
-      bot << line + ".." if modified_i == 2
+      top << line if modified_i == 0
+      mid << line if modified_i == 1
+      bot << line if modified_i == 2
     end
     (top.length/2).times do |i|
       modified_i = i * 2
@@ -57,13 +60,12 @@ class Text
   end
 
   def truncate_braille(top,mid,bot)
-    max_length = 80
-    top_arr = [top[0..max_length - 1]]
-    mid_arr = [mid[0..max_length - 1]]
-    bot_arr = [bot[0..max_length - 1]]
-    (top.length/max_length).floor.times do |i|
-      start = max_length*(i+1)
-      finish = max_length*(i+2) - 1
+    top_arr = [top[0..MAX_LENGTH - 1]]
+    mid_arr = [mid[0..MAX_LENGTH - 1]]
+    bot_arr = [bot[0..MAX_LENGTH - 1]]
+    (top.length/MAX_LENGTH).floor.times do |i|
+      start = MAX_LENGTH*(i+1)
+      finish = MAX_LENGTH*(i+2) - 1
       top_arr << top[start..finish]
       mid_arr << mid[start..finish]
       bot_arr << bot[start..finish]
@@ -80,11 +82,10 @@ class Text
   end
 
   def truncate_english(txt)
-    max_length = 80
-    truncated = [txt[0..max_length]]
-    (txt.length/max_length).floor.times do |i|
-      start = max_length*(i+1)
-      finish = max_length*(i+2) - 1
+    truncated = [txt[0..MAX_LENGTH]]
+    (txt.length/MAX_LENGTH).floor.times do |i|
+      start = MAX_LENGTH*(i+1)
+      finish = MAX_LENGTH*(i+2) - 1
       truncated << txt[start..finish]
     end
     truncated.join("\n").chomp
